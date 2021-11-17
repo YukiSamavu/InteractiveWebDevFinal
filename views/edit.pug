@@ -1,0 +1,47 @@
+extends layout 
+
+block content 
+    form(id='form' method='POST' action='/edit/' + profile.id)
+        label(for='name') Username:
+        input(type='text', name='username' value=profile.username)
+        br
+        label(for='password') Password:
+        input(type='text', name='password' value=profile.password)
+        br
+        label(for='email') Email:
+        input(type='text', name='email' value=profile.email)
+        br
+        label(for='age') Age:
+        input(type='text', name='age' value=profile.age)
+        br
+        label(for='color') Favorite Color: 
+        select(name="color")
+            option(seleted = profile.color) #{profile.color}
+            option(value='Blue') Blue
+            option(value='Red') Red
+            option(value='Green') Green
+            option(value='Yellow') Yellow
+            option(value='Orange') Orange
+            option(value='Purple') Purple
+        br
+        label(for='entertainment') Favorite Entertainment: 
+        select(name="entertainment")
+        option(seleted = profile.entertainment) #{profile.entertainment}
+            option(value='Anime') Anime
+            option(value='Movies') Movies
+            option(value='TV Shows') TV Shows
+            option(value='Cartoons') Cartoons
+            option(value='Youtube') Youtube
+            option(value="Other") Other 
+        br
+        label(for='degree') Degree: 
+        select(name="degree")
+        option(seleted = profile.degree) #{profile.degree}
+            option(value='Game Dev') Game Dev
+            option(value='IS') IS
+            option(value='CS') CS
+            option(value='TM') TM
+            option(value='Web') Web
+            option(value='SE') SE
+        br
+        input(type="submit" value='Edit Profile')

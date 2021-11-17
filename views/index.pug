@@ -1,0 +1,18 @@
+<!-- Make page with option to make profile,
+    or login -->
+extends layout 
+
+block content
+
+<!--Login In form -->
+    form(id='form' method='POST' action='/')
+        label(for='name') Username:
+        input(type='text', name='username')
+        br
+        label(for='password') Password:
+        input(type='text', name='password')
+        br
+        input(type='submit' value='Log In')
+
+<!--Add Profile Button -->
+

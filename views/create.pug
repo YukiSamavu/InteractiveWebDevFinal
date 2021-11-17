@@ -1,0 +1,44 @@
+extends layout 
+
+block content 
+    form(id='form' method='POST' action='/create')
+        label(for='name') Username:
+        input(type='text', name='username')
+        br
+        label(for='password') Password:
+        input(type='text', name='password')
+        br
+        label(for='email') Email:
+        input(type='text', name='email')
+        br
+        label(for='age') Age:
+        input(type='text', name='age')
+        br
+        label(for='color') Favorite Color: 
+        select(name="color")
+            option(value='Blue') Blue
+            option(value='Red') Red
+            option(value='Green') Green
+            option(value='Yellow') Yellow
+            option(value='Orange') Orange
+            option(value='Purple') Purple
+        br
+        label(for='entertainment') Favorite Entertainment: 
+        select(name="entertainment")
+            option(value='Anime') Anime
+            option(value='Movies') Movies
+            option(value='TV Shows') TV Shows
+            option(value='Cartoons') Cartoons
+            option(value='Youtube') Youtube
+            option(value="Other") Other 
+        br
+        label(for='degree') Degree: 
+        select(name="degree")
+            option(value='Game Dev') Game Dev
+            option(value='IS') IS
+            option(value='CS') CS
+            option(value='TM') TM
+            option(value='Web') Web
+            option(value='SE') SE
+        br
+        input(type="submit" value='Make Profile')
