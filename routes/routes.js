@@ -3,6 +3,8 @@ const expressSession = require("express-session");
 const {MongoClient, ObjectId} = require('mongodb');
 const url = 'mongodb+srv://Yuki:Danganronpa12@cluster0.f4sjj.mongodb.net/myData?retryWrites=true&w=majority';
 const client = new MongoClient(url);
+const express = require("express");
+const app = express();
 
 const dbName = 'myData';
 const db = client.db(dbName);
@@ -20,13 +22,23 @@ exports.index = (req,res) => {
     })
 }
 
-exports.LoggingIn = (req,res) => {
+exports.LoggingIn = async (req,res) => {
     await client.connect();
-    //Put code to get all from database
+    console.log(req.body.username)
+    const filterProfiles = await collection.find({username: req.body.username}).toArray();
     client.close();
     //Check if password matches for user
-        //If yes go to logged in
-        //If no Tell username or password is wrong
+    console.log(req.body.username);
+    console.log(filterProfiles);
+    if(bcrypt.compareSync(`${req.body.password}`, `${filterProfiles[0].password}`))
+    {
+        res.render('loggedIn', {
+            title: 'Home',
+        });
+    }
+    else{
+        res.redirect('/');
+    }
 }
 
 exports.create = (req,res) => {
@@ -35,7 +47,7 @@ exports.create = (req,res) => {
     })
 }
 
-exports.createPerson = async (req,res) => {
+exports.createProfile = async (req,res) => {
     await client.connect();
 
     let salt = bcrypt.genSaltSync(10);
@@ -65,7 +77,7 @@ exports.edit = async (req,res) => {
     })
 }
 
-exports.editPerson = async (req,res) => {
+exports.editProfile = async (req,res) => {
     await client.connect();
 
     let salt = bcrypt.genSaltSync(10);

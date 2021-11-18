@@ -1,10 +1,7 @@
-<!-- Make page with option to make profile,
-    or login -->
 extends layout 
 
 block content
 
-<!--Login In form -->
     form(id='form' method='POST' action='/')
         label(for='name') Username:
         input(type='text', name='username')
@@ -14,5 +11,8 @@ block content
         br
         input(type='submit' value='Log In')
 
-<!--Add Profile Button -->
+    br
+    br
+    form(method='get' action='/create')
+        button(type='submit') Create Profile
 

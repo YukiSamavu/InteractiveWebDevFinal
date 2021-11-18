@@ -18,7 +18,7 @@ app.post('/', urlencodedparser ,routes.LoggingIn);
 app.get('/create', routes.create);
 app.post('/create', urlencodedparser, routes.createProfile);
 app.get('/edit/:id', routes.edit);
-app.get('/edit/:id', urlencodedparser, routes.editProfile);
+app.post('/edit/:id', urlencodedparser, routes.editProfile);
 app.get('/home/:id', routes.loggedIn);
 app.get('/logout', routes.logout);
 
