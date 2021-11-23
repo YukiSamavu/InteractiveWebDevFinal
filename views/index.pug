@@ -2,17 +2,17 @@ extends layout
 
 block content
 
-    form(id='form' method='POST' action='/')
+    form(class="logForm" id='form' method='POST' action='/')
         label(for='name') Username:
-        input(type='text', name='username')
+        input(class="field fieldName", type='text', name='username')
         br
         label(for='password') Password:
-        input(type='text', name='password')
+        input(class="field fieldPass" type='text', name='password')
         br
-        input(type='submit' value='Log In')
+        input(class="button submit1", type='submit' value='Log In')
 
     br
     br
-    form(method='get' action='/create')
-        button(type='submit') Create Profile
+    form(id="submit" method='get' action='/create')
+        button(class="button submit2", type='submit') Create Profile
 

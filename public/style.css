@@ -1,0 +1,140 @@
+body {
+    background-color: #2080a0;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+}
+
+form {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    background-color: #404040;
+    width: 400px;
+    position: absolute;
+    left: 37%;
+}
+
+.logForm {
+    height: 190px;
+    top: 20%;
+}
+
+.createForm {
+    height: 625px;
+    width: 500px;
+    top: 20%;
+    left: 34%;
+}
+
+#submit {
+    height: 100px;
+    top: 50%;
+}
+
+.button {
+    position: relative;
+    left: 30px;
+    width: 340px;
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    color: #fff;
+    background-color: #70a0f0;
+}
+
+.submit1 {
+    top: 40px;
+}
+
+.submit2 {
+    top: 28px;
+}
+
+.submit3 {
+    top: 28px;
+    width: 443px;
+}
+
+label {
+    position: relative;
+    left: 25px;
+    top: 25px;
+}
+
+.field {
+    position: relative;
+    top: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #666;
+    color:#fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.field2 {
+    position: relative;
+    top: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #666;
+    color:#fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 270px;
+}
+
+.field3 {
+    position: relative;
+    top: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #666;
+    color:#fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: 110px;
+}
+
+.fieldName {
+    position: relative;
+    left: 61px;
+}
+
+.fieldPass {
+    position: relative;
+    left: 70px;
+}
+
+.fieldMail {
+    position: relative;
+    left: 122px;
+}
+
+.fieldAge {
+    position: relative;
+    left: 140px;
+}
+
+.fieldCol {
+    position: relative;
+    left: 180px;
+}
+
+.fieldEnt {
+    position: relative;
+    left: 70px;
+}
+
+.fieldDeg {
+    position: relative;
+    left: 265px;
+}
