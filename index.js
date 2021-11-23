@@ -8,6 +8,7 @@ const url = 'mongodb+srv://Yuki:Danganronpa12@cluster0.f4sjj.mongodb.net/myData?
 const client = new MongoClient(url);
 const app = express();
 const cookieParser = require('cookie-parser');
+const { toNamespacedPath } = require("path");
 app.use(cookieParser('WebFinal'));
 
 const dbName = 'myData';
@@ -128,8 +129,42 @@ app.post('/edit/:id', urlencodedparser, checkAuth, async (req,res) => {
 });
 
 app.get('/home/:user', checkAuth, (req,res) => {
+    let visited = new Date();
+    let time = `${visited.getHours()}:${visited.getMinutes()}:${visited.getSeconds()}`
+    let day = visited.getDay();
+    if(day == 1)
+    {
+        day = 'Monday'
+    }
+    if(day == 2)
+    {
+        day = 'Teusday'
+    }
+    if(day == 3)
+    {
+        day = 'Wednesday'
+    }
+    if(day == 4)
+    {
+        day = 'Thursday'
+    }
+    if(day == 5)
+    {
+        day = 'Friday'
+    }
+    if(day == 6)
+    {
+        day = 'Saturday'
+    }
+    if(day == 7)
+    {
+        day = 'Sunday'
+    }
+    let visitedText = `You last visited ${day} at ${time}`
+    res.cookie('LastVisit', visitedText, {maxAge: 99999999999999999999999999999999})
     res.render('loggedIn', {
         title: 'Home',
+        vist: visitedText
     });
 });
 
