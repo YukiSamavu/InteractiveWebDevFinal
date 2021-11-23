@@ -1,3 +1,11 @@
 extends layout 
 
 block content
+
+    h2=vist
+    form(method='get' action='/edit/:id')
+        button(type='submit') Edit Profile
+    br
+    br
+    form(method='get' action='/logout')
+        button(type='submit') Logout

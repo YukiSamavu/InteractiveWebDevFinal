@@ -1,12 +1,12 @@
 extends layout 
 
 block content 
-    form(id='form' method='POST' action='/edit/' + profile.id)
+    form(id='form' method='POST' action='/edit/' + profile.username)
         label(for='name') Username:
         input(type='text', name='username' value=profile.username)
         br
         label(for='password') Password:
-        input(type='text', name='password' value=profile.password)
+        input(type='text', name='password')
         br
         label(for='email') Email:
         input(type='text', name='email' value=profile.email)
@@ -26,22 +26,22 @@ block content
         br
         label(for='entertainment') Favorite Entertainment: 
         select(name="entertainment")
-        option(seleted = profile.entertainment) #{profile.entertainment}
-            option(value='Anime') Anime
-            option(value='Movies') Movies
-            option(value='TV Shows') TV Shows
-            option(value='Cartoons') Cartoons
-            option(value='Youtube') Youtube
-            option(value="Other") Other 
+            option(seleted = profile.entertainment) #{profile.entertainment}
+                option(value='Anime') Anime
+                option(value='Movies') Movies
+                option(value='TV Shows') TV Shows
+                option(value='Cartoons') Cartoons
+                option(value='Youtube') Youtube
+                option(value="Other") Other 
         br
         label(for='degree') Degree: 
         select(name="degree")
-        option(seleted = profile.degree) #{profile.degree}
-            option(value='Game Dev') Game Dev
-            option(value='IS') IS
-            option(value='CS') CS
-            option(value='TM') TM
-            option(value='Web') Web
-            option(value='SE') SE
+            option(seleted = profile.degree) #{profile.degree}
+                option(value='Game Dev') Game Dev
+                option(value='IS') IS
+                option(value='CS') CS
+                option(value='TM') TM
+                option(value='Web') Web
+                option(value='SE') SE
         br
         input(type="submit" value='Edit Profile')
