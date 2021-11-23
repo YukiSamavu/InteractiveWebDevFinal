@@ -1,25 +1,29 @@
 extends layout 
 
-block content 
-    form(id='form' method='POST' action='/create')
+block content
+    style(type="text/css").
+        body {
+            height: 800px;
+        }
+    form(class="createForm" id='form' method='POST' action='/create')
         label(for='name') Username:
-        input(type='text', name='username')
+        input(class="field2 fieldName" type='text', name='username')
         br
         br
         label(for='password') Password:
-        input(type='text', name='password')
+        input(class="field2 fieldPass" type='text', name='password')
         br
         br
         label(for='email') Email:
-        input(type='text', name='email')
+        input(class="field2 fieldMail" type='text', name='email')
         br
         br
         label(for='age') Age:
-        input(type='text', name='age')
+        input(class="field2 fieldAge" type='text', name='age')
         br
         br
         label(for='color') Favorite Color: 
-        select(name="color")
+        select(class="field3 fieldCol" name="color")
             option(value='Blue') Blue
             option(value='Red') Red
             option(value='Green') Green
@@ -29,7 +33,7 @@ block content
         br
         br
         label(for='entertainment') Favorite Entertainment: 
-        select(name="entertainment")
+        select(class="field3 fieldEnt" name="entertainment")
             option(value='Anime') Anime
             option(value='Movies') Movies
             option(value='TV Shows') TV Shows
@@ -39,7 +43,7 @@ block content
         br
         br
         label(for='degree') Degree: 
-        select(name="degree")
+        select(class="field3 fieldDeg" name="degree")
             option(value='Game Dev') Game Dev
             option(value='IS') IS
             option(value='CS') CS
@@ -48,4 +52,4 @@ block content
             option(value='SE') SE
         br
         br
-        input(type="submit" value='Make Profile')
+        input(class="button submit3" type="submit" value='Make Profile')
