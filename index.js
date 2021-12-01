@@ -57,7 +57,8 @@ app.post('/', urlencodedparser ,async (req,res) => {
     {
         req.session.user = {
             isAuthenticated: true,
-            username: req.body.username
+            username: req.body.username,
+            id: filterProfiles[0]._id
         }
         res.redirect('/home/' + req.session.user.username)
     }
@@ -108,15 +109,14 @@ app.post('/edit/:id', urlencodedparser, checkAuth, async (req,res) => {
     await client.connect();
 
     let salt = bcrypt.genSaltSync(10);
-    let hashPass = bcrypt.hashSync(`${req.body.password}`, salt);
+    let editHashPass = bcrypt.hashSync(`${req.body.password}`, salt);
     console.log('Person Edit')
-    console.log(userName)
-
+    console.log(req.body.id);
     const updatePerson= await collection.updateOne(
-        collection.find({username: req.session.user.username}),
+        {_id: ObjectId(req.body.id) },
         { $set: {
             username: req.body.username,
-            password: hashPass,
+            password: editHashPass,
             email: req.body.email,
             age: req.body.age,
             color: req.body.color,
@@ -128,7 +128,8 @@ app.post('/edit/:id', urlencodedparser, checkAuth, async (req,res) => {
     res.redirect(`/home/${req.session.user.username}}`);
 });
 
-app.get('/home/:user', checkAuth, (req,res) => {
+app.get('/home/:user', checkAuth, async (req,res) => {
+    await client.connect();
     let visited = new Date();
     let time = `${visited.getHours()}:${visited.getMinutes()}:${visited.getSeconds()}`
     let day = visited.getDay();
@@ -161,10 +162,14 @@ app.get('/home/:user', checkAuth, (req,res) => {
         day = 'Sunday'
     }
     let visitedText = `You last visited ${day} at ${time}`
+    const filterProfiles = await collection.find({username: req.session.user.username}).toArray();
+    console.log(filterProfiles)
+    client.close();
     res.cookie('LastVisit', visitedText, {maxAge: 99999999999999999999999999999999})
     res.render('loggedIn', {
         title: 'Home',
-        vist: visitedText
+        vist: visitedText,
+        person: filterProfiles[0]
     });
 });
 

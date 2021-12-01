@@ -1,6 +1,7 @@
 extends layout 
 
 block content 
+<<<<<<< Updated upstream
     form(id='form' method='POST' action='/create')
         label(for='name') Username:
         input(type='text', name='username')
@@ -16,6 +17,23 @@ block content
         br
         label(for='age') Age:
         input(type='text', name='age')
+=======
+    form(class="createForm" id='form' method='POST' action='/create')
+        label(for='name') Username:
+        input(class="field2 fieldName", type='text', name='username')
+        br
+        br
+        label(for='password') Password:
+        input(class="field2 fieldPass", type='text', name='password')
+        br
+        br
+        label(for='email') Email:
+        input(class="field2 fieldMail", type='text', name='email')
+        br
+        br
+        label(for='age') Age:
+        input(class="field2 fieldAge", type='text', name='age')
+>>>>>>> Stashed changes
         br
         br
         label(for='color') Favorite Color: 

@@ -1,21 +1,25 @@
 extends layout 
 
 block content 
-    form(id='form' method='POST' action='/edit/' + profile.username)
+    form(class="createForm" id='form' method='POST' action='/edit/' + profile.username)
         label(for='name') Username:
-        input(type='text', name='username' value=profile.username)
+        input(class="field2 fieldName" type='text', name='username' value=profile.username)
+        br
         br
         label(for='password') Password:
-        input(type='text', name='password')
+        input(class="field2 fieldPass" type='text', name='password')
+        br
         br
         label(for='email') Email:
-        input(type='text', name='email' value=profile.email)
+        input(class="field2 fieldMail" type='text', name='email' value=profile.email)
+        br
         br
         label(for='age') Age:
-        input(type='text', name='age' value=profile.age)
+        input(class="field2 fieldAge" type='text', name='age' value=profile.age)
+        br
         br
         label(for='color') Favorite Color: 
-        select(name="color")
+        select(class="field3 fieldCol" name="color")
             option(seleted = profile.color) #{profile.color}
             option(value='Blue') Blue
             option(value='Red') Red
@@ -24,8 +28,9 @@ block content
             option(value='Orange') Orange
             option(value='Purple') Purple
         br
+        br
         label(for='entertainment') Favorite Entertainment: 
-        select(name="entertainment")
+        select(class="field3 fieldEnt" name="entertainment")
             option(seleted = profile.entertainment) #{profile.entertainment}
                 option(value='Anime') Anime
                 option(value='Movies') Movies
@@ -34,8 +39,9 @@ block content
                 option(value='Youtube') Youtube
                 option(value="Other") Other 
         br
+        br
         label(for='degree') Degree: 
-        select(name="degree")
+        select(class="field3 fieldDeg" name="degree")
             option(seleted = profile.degree) #{profile.degree}
                 option(value='Game Dev') Game Dev
                 option(value='IS') IS
@@ -44,4 +50,8 @@ block content
                 option(value='Web') Web
                 option(value='SE') SE
         br
-        input(type="submit" value='Edit Profile')
+        label(class='hdnID') ID: 
+        select(class='hdnID' name="id")
+            option(value=profile._id) #{profile._id} 
+        br
+        input(class="button submit3" type="submit" value='Edit Profile')

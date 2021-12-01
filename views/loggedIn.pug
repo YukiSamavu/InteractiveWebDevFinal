@@ -2,10 +2,10 @@ extends layout
 
 block content
 
-    h2=vist
-    form(method='get' action='/edit/:id')
-        button(type='submit') Edit Profile
+    h2(class="title")=vist
+    form(class="homeForm hF1" method='get' action='/edit/' + person._id)
+        button(class="button submit2" type='submit') Edit Profile
     br
     br
-    form(method='get' action='/logout')
-        button(type='submit') Logout
+    form(class="homeForm hF2" method='get' action='/logout')
+        button(class="button submit2" type='submit') Logout

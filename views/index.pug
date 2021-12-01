@@ -7,6 +7,7 @@ block content
         input(type='text', name='username')
         br
         label(for='password') Password:
+<<<<<<< Updated upstream
         input(type='text', name='password')
         br
         input(type='submit' value='Log In')
@@ -15,4 +16,12 @@ block content
     br
     form(method='get' action='/create')
         button(type='submit') Create Profile
+=======
+        input(class="field fieldPass", type='text', name='password')
+        br
+        input(class="button submit1" type='submit' value='Log In')
+    br
+    form(id="submit" method='get' action='/create')
+        button(class="button button submit2" type='submit') Create Profile
+>>>>>>> Stashed changes
 
